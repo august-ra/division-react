@@ -10,17 +10,17 @@ interface Props {
 function TblRoots({ pairs }: Props) {
   const [activeRoot, setActiveRoot] = useState<number>(0)
 
-  function toggleActiveRoot(value: number) {
+  function toggleActiveRoot(value: number = activeRoot) {
     const element: HTMLElement = document.querySelector(":root")!
     element.style.setProperty(`--root-${activeRoot}`, "#ffffffdd")
     element.style.setProperty(`--root-zero-${activeRoot}`, "gray")
 
-    if (activeRoot !== value) {
+    if (activeRoot === value || value === 0) {
+      setActiveRoot(0)
+    } else {
       element.style.setProperty(`--root-${value}`, "yellow")
       element.style.setProperty(`--root-zero-${value}`, "darkkhaki")
       setActiveRoot(value)
-    } else {
-      setActiveRoot(0)
     }
   }
 
@@ -29,7 +29,7 @@ function TblRoots({ pairs }: Props) {
       <tbody>
         <tr>
           <td></td>
-          <td title="digital roots">&nbsp;dr&nbsp;</td>
+          <td title="digital roots" onClick={() => toggleActiveRoot()}>&nbsp;dr&nbsp;</td>
         </tr>
 
         {
