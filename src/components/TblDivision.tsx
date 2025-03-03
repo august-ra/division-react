@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 import TblResult from "./TblResult"
+import TblRoots from "./TblRoots"
 
 import { fillStepInfo, getLastStepInfo } from "../utils/info"
 import type { NumberInfo, StepInfo } from "../utils/types"
@@ -113,6 +114,8 @@ export default function TblDivision({ dividend, divisor }: Props) {
 
   return (
     <div className="division">
+      <TblRoots pairs={pairs} />
+
       <table>
         <tbody>
           <tr>
