@@ -1,3 +1,14 @@
+:root {
+  --root-1: #ffffffdd;
+  --root-2: #ffffffdd;
+  --root-3: #ffffffdd;
+  --root-4: #ffffffdd;
+  --root-5: #ffffffdd;
+  --root-6: #ffffffdd;
+  --root-7: #ffffffdd;
+  --root-8: #ffffffdd;
+  --root-9: #ffffffdd;
+}
 
 .division {
   min-width: 100svw;
@@ -13,6 +24,42 @@
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
+
+  [data-root="1"] {
+    color: var(--root-1);
+  }
+
+  [data-root="2"] {
+    color: var(--root-2);
+  }
+
+  [data-root="3"] {
+    color: var(--root-3);
+  }
+
+  [data-root="4"] {
+    color: var(--root-4);
+  }
+
+  [data-root="5"] {
+    color: var(--root-5);
+  }
+
+  [data-root="6"] {
+    color: var(--root-6);
+  }
+
+  [data-root="7"] {
+    color: var(--root-7);
+  }
+
+  [data-root="8"] {
+    color: var(--root-8);
+  }
+
+  [data-root="9"] {
+    color: var(--root-9);
+  }
 
   table {
     border-spacing: 0;

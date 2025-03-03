@@ -167,13 +167,13 @@ export default function TblDivision({ dividend, divisor }: Props) {
                       str1.slice(0, -first[1] || 100).split("").map((item: string, index: number, array: string[]) => (
                         offset === 0 && index === array.length - 1
                           ? (
-                            <td key={`DFD.${index}`} className="first">
+                            <td key={`DFD.${index}`} className="first" data-root={`${first[2]}`}>
                               {item}
                               <div className="dot">.</div>
                             </td>
                           )
                           : (
-                            <td key={`DFD.${index}`} className="first">{item}</td>
+                            <td key={`DFD.${index}`} className="first" data-root={`${first[2]}`}>{item}</td>
                           )
                       ))
                     }
@@ -204,7 +204,7 @@ export default function TblDivision({ dividend, divisor }: Props) {
 
                           {
                             str2.split("").map((item: string, index:number) => (
-                              <td key={`DSD.${index}`} className="second">{item}</td>
+                              <td key={`DSD.${index}`} className="second" data-root={`${second![2]}`}>{item}</td>
                             ))
                           }
                         </tr>
