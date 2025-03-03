@@ -16,6 +16,7 @@ export default function TblDivision({ dividend, divisor }: Props) {
   const [results] = useState<Record<number, number>>({})
 
   const [quotient, setQuotient] = useState<string>("")
+  const [periodic, setPeriodic] = useState<string>("")
 
   useEffect(() => {
     if (pairs.length)
@@ -75,6 +76,23 @@ export default function TblDivision({ dividend, divisor }: Props) {
         step = results[first]
         pairs[step][3] = true
 
+        setPeriodic(pairs.reduce((acc: string, item: StepInfo, index: number) => {
+          if (index < step)
+            return ""
+
+          let zeros = item[0][1]
+
+          if (index === step)
+            zeros -= String(item[0][0]).length - String(first).length
+          else
+            --zeros
+
+          if (zeros > 0)
+            return acc + "0".repeat(zeros) + item[2]
+          else
+            return acc + item[2]
+        }, ""))
+
         const stepInfo: StepInfo = getLastStepInfo(first)
         pairs.push(stepInfo)
 
@@ -105,7 +123,7 @@ export default function TblDivision({ dividend, divisor }: Props) {
             <td></td>
             <td></td>
             <td rowSpan={2}>
-              <TblResult divisor={divisor} quotient={quotient} />
+              <TblResult divisor={divisor} quotient={quotient} periodic={periodic} />
             </td>
           </tr>
 
