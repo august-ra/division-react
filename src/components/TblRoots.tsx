@@ -13,9 +13,11 @@ function TblRoots({ pairs }: Props) {
   function toggleActiveRoot(value: number) {
     const element: HTMLElement = document.querySelector(":root")!
     element.style.setProperty(`--root-${activeRoot}`, "#ffffffdd")
+    element.style.setProperty(`--root-zero-${activeRoot}`, "gray")
 
     if (activeRoot !== value) {
       element.style.setProperty(`--root-${value}`, "yellow")
+      element.style.setProperty(`--root-zero-${value}`, "darkkhaki")
       setActiveRoot(value)
     } else {
       setActiveRoot(0)

@@ -179,7 +179,7 @@ export default function TblDivision({ dividend, divisor }: Props) {
                     }
                     {
                       zeros.split("").map((_, index: number) => (
-                        <td key={`DFZ.${index}`} className="zero">0</td>
+                        <td key={`DFZ.${index}`} className="zero" data-root={`${first[2]}`}>0</td>
                       ))
                     }
                   </tr>
