@@ -18,7 +18,7 @@ export function getLastStepInfo(first: number): StepInfo {
 export function setNumberInfo(info: NumberInfo, value: number, zeros: number = 0) {
   info[0] = value
   info[1] = zeros
-  info[2] = value % 9 || 9 // digital root
+  info[2] = calcDigitalRoot(value)
   info[3] = String(value).length
 }
 
@@ -42,4 +42,8 @@ export function calcUnits(value: number, unit_0: string, unit_1: string, unit_2:
 
 export function calcSumOfDigits(digits: string): number {
   return digits.split("").reduce((acc: number, digit: string) => acc + Number(digit), 0)
+}
+
+export function calcDigitalRoot(value: number): number {
+  return value % 9 || 9
 }

@@ -1,6 +1,6 @@
 import React from "react"
 
-import { calcSumOfDigits, calcUnits } from "../utils/info"
+import { calcDigitalRoot, calcSumOfDigits, calcUnits } from "../utils/info"
 
 
 interface Props {
@@ -12,8 +12,9 @@ interface Props {
 function TblResult({ divisor, quotient, periodic }: Props) {
   const result: string = (() => {
     const length: number = periodic.length
-    const sum: number = calcSumOfDigits(periodic)
-    const title: string = `${length} ${calcUnits(length, "цифр", "цифра", "цифры")} => ∑${sum} => dr ${sum % 9 || 9}`
+    const sum:    number = calcSumOfDigits(periodic)
+    const root:   number = calcDigitalRoot(sum)
+    const title:  string = `${length} ${calcUnits(length, "цифр", "цифра", "цифры")} => ∑${sum} => dr ${root}`
 
     if (periodic)
       return quotient.replace(periodic, `(<span class="periodic" title="${title}">${periodic}</span>)`)
